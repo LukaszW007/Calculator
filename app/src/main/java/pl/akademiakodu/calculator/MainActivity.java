@@ -290,7 +290,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public class NewTask extends AsyncTask<Void, Integer, Integer> {
 
         @Override
-        protected Integer doInBackground(Void... params) throws ArithmeticException{
+        protected Integer doInBackground(Void... params) throws ArithmeticException {
             for (int i = 0; i <= 1; i++) {
                 publishProgress(i);
                 try {
@@ -303,14 +303,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             result = firstNumber - secondNumber;
                             break;
                         case "/":
-                            try {
-                                if (secondNumber == 0) {
-                                    throw new ArithmeticException();
-                                } else {
-                                    result = firstNumber / secondNumber;
-                                }
-                            } catch (ArithmeticException e) {
+                            if (secondNumber == 0) {
                                 alertDialog("Forbidden dividing by zero");
+                            } else {
+                                result = firstNumber / secondNumber;
                             }
                             break;
 
